@@ -1,5 +1,5 @@
 import store from '../store';
-import { getRandomNumber, namePrettier } from '../hw3/functions';
+import { getRandomNumber, namePrettier } from '../hw3/index';
 import { getMyTaxes, getMiddleTaxes, getTotalTaxes } from './functions';
 
 const state = store.hw7;
