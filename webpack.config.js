@@ -11,6 +11,7 @@ module.exports = {
     hw2: './src/hw2/index.js',
     hw4: './src/hw4/index.js',
     hw5: './src/hw5/index.js',
+    hw7: './src/hw7/index.js',
     hw11: './src/hw11/index.js',
     hw13: './src/hw13/index.js',
   },
@@ -52,6 +53,13 @@ module.exports = {
       template: './index.html',
       inject: true,
       chunks: ['hw5'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'hw7',
+      filename: './hw7/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw7'],
     }),
     new HtmlWebpackPlugin({
       title: 'hw11',
