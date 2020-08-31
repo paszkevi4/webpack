@@ -9,6 +9,10 @@ module.exports = {
     //index: './src/index1.js',
     hw1: './src/hw1/index.js',
     hw2: './src/hw2/index.js',
+    hw4: './src/hw4/index.js',
+    hw5: './src/hw5/index.js',
+    hw11: './src/hw11/index.js',
+    hw13: './src/hw13/index.js',
   },
   output: {
     path: path.resolve(__dirname, `dist/`),
@@ -35,12 +39,39 @@ module.exports = {
       inject: true,
       chunks: ['hw2'],
     }),
+    new HtmlWebpackPlugin({
+      title: 'hw4',
+      filename: './hw4/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw4'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'hw5',
+      filename: './hw5/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw5'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'hw11',
+      filename: './hw11/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw11'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'hw13',
+      filename: './hw13/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw13'],
+    }),
     new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
       { test: /\.(png|svg|jpg|gif)$/, use: 'file-loader' },
-      { test: /\.ts$/, use: 'ts-loader' },
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
       {
         test: /\.s[ac]ss$/i,

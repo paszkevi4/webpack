@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw2/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw13/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/hw2/index.js":
-/*!**************************!*\
-  !*** ./src/hw2/index.js ***!
-  \**************************/
+/***/ "./src/hw13/index.js":
+/*!***************************!*\
+  !*** ./src/hw13/index.js ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const numberSetter = (strToShow) => {\r\n  let i = null;\r\n  while (!i) {\r\n    i = +prompt(strToShow);\r\n    Number.isInteger(i / 1) ? '' : (i = null);\r\n  }\r\n  return i;\r\n};\r\n\r\nconst counter = () => {\r\n  let res = 0;\r\n  for (let i = LOWER; i <= HIGHER; i++) {\r\n    if (SKIP_EVEN && i % 2 == 0) continue;\r\n    res += i;\r\n  }\r\n  return res;\r\n};\r\n\r\nconst LOWER = numberSetter('Від якого числа небхідно складати?');\r\nlet HIGHER = numberSetter('До якого числа небхідно складати?');\r\nconst SKIP_EVEN = confirm('Чи потрібно пропускати парні числа?');\r\n\r\nconst root = document.getElementById('root');\r\nconst app = () => {\r\n  root.innerHTML = `\r\n    \t<h3>Сума  всiх ${SKIP_EVEN ? 'непарних' : ''} \r\n    \tчисел від ${LOWER} до ${HIGHER} \r\n    \tдорівнює ${counter()}. </h3>\r\n\t`;\r\n};\r\n\r\nconst render = () => {\r\n  while (HIGHER <= LOWER) {\r\n    HIGHER = numberSetter(\r\n      `Число, до якого необхiдно рахувати має бути бiльше ${LOWER}. Змiнiть своє число:`,\r\n    );\r\n  }\r\n  console.log(counter());\r\n  app();\r\n};\r\nrender();\r\n\n\n//# sourceURL=webpack:///./src/hw2/index.js?");
+eval("const newFontGenerator = (size = 16) => {\r\n  return {\r\n    next(direction) {\r\n      if (direction === 'up') {\r\n        if (size >= 72) {\r\n          return { value: size, done: false };\r\n        }\r\n        return { value: (size += 2), done: false };\r\n      } else if (direction === 'down') {\r\n        if (size <= 6) {\r\n          return { value: size, done: false };\r\n        }\r\n        return { value: (size -= 2), done: false };\r\n      } else {\r\n        return { value: size, done: false };\r\n      }\r\n    },\r\n  };\r\n};\r\nconst fontGenerator = newFontGenerator(14);\r\n\r\nlet generatorValue = 0;\r\n\r\nfunction* infiniteGenerator() {\r\n  while (true) {\r\n    generatorValue++;\r\n    yield generatorValue;\r\n  }\r\n}\r\n\r\nwindow.fontGenerator = fontGenerator;\r\nwindow.infiniteGenerator = infiniteGenerator();\r\n\r\nconsole.table([\r\n  {\r\n    fontGenerator: 'fontGenerator.next(\"up\")',\r\n    infiniteGenerator: 'infiniteGenerator.next().value',\r\n  },\r\n  { fontGenerator: 'fontGenerator.next(\"down\")', infiniteGenerator: '' },\r\n]);\r\n\n\n//# sourceURL=webpack:///./src/hw13/index.js?");
 
 /***/ })
 

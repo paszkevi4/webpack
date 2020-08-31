@@ -81,19 +81,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw2/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw11/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/hw2/index.js":
-/*!**************************!*\
-  !*** ./src/hw2/index.js ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/hw11/index.js":
+/*!***************************!*\
+  !*** ./src/hw11/index.js ***!
+  \***************************/
+/*! exports provided: getRandomChinese */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const numberSetter = (strToShow) => {\r\n  let i = null;\r\n  while (!i) {\r\n    i = +prompt(strToShow);\r\n    Number.isInteger(i / 1) ? '' : (i = null);\r\n  }\r\n  return i;\r\n};\r\n\r\nconst counter = () => {\r\n  let res = 0;\r\n  for (let i = LOWER; i <= HIGHER; i++) {\r\n    if (SKIP_EVEN && i % 2 == 0) continue;\r\n    res += i;\r\n  }\r\n  return res;\r\n};\r\n\r\nconst LOWER = numberSetter('Від якого числа небхідно складати?');\r\nlet HIGHER = numberSetter('До якого числа небхідно складати?');\r\nconst SKIP_EVEN = confirm('Чи потрібно пропускати парні числа?');\r\n\r\nconst root = document.getElementById('root');\r\nconst app = () => {\r\n  root.innerHTML = `\r\n    \t<h3>Сума  всiх ${SKIP_EVEN ? 'непарних' : ''} \r\n    \tчисел від ${LOWER} до ${HIGHER} \r\n    \tдорівнює ${counter()}. </h3>\r\n\t`;\r\n};\r\n\r\nconst render = () => {\r\n  while (HIGHER <= LOWER) {\r\n    HIGHER = numberSetter(\r\n      `Число, до якого необхiдно рахувати має бути бiльше ${LOWER}. Змiнiть своє число:`,\r\n    );\r\n  }\r\n  console.log(counter());\r\n  app();\r\n};\r\nrender();\r\n\n\n//# sourceURL=webpack:///./src/hw2/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRandomChinese\", function() { return getRandomChinese; });\nconst delay = () => {\r\n  return new Promise((res) =>\r\n    setTimeout(() => {\r\n      res();\r\n    }, 50),\r\n  );\r\n};\r\n\r\nlet time = null;\r\n\r\nconst getRandomChinese = async (length) => {\r\n  time = Date.now();\r\n  let result = [];\r\n  try {\r\n    for (let i = 0; i < length; i++) {\r\n      const uniqueKey = Date.now().toString().substr(-5);\r\n      result.push(String.fromCharCode(uniqueKey));\r\n      await delay();\r\n    }\r\n  } catch {\r\n    throw new Error('impossible error');\r\n  } finally {\r\n    console.log(`${result.join('')} за ${Date.now() - time} ms`);\r\n  }\r\n};\r\n\r\ngetRandomChinese(4);\r\n\n\n//# sourceURL=webpack:///./src/hw11/index.js?");
 
 /***/ })
 
