@@ -1,5 +1,10 @@
-import { newFunc } from './index1';
+import './index.css';
+import avatar from '../img/020.jpg';
 
 console.log('hello weback. you are cool');
 
-newFunc();
+let root = document.getElementById('root');
+
+const avatarImg = `<img src="${avatar}" />`;
+
+root.innerHTML = avatarImg;

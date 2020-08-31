@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\J\\\\Desktop\\\\projects\\\\cursor\\\\webpack\\\\src\\\\hw13\\\\index.js'\");\n\n//# sourceURL=webpack:///./src/hw13/index.js?");
+eval("const newFontGenerator = (size = 16) => {\r\n  return {\r\n    next(direction) {\r\n      if (direction === 'up') {\r\n        if (size >= 72) {\r\n          return { value: size, done: false };\r\n        }\r\n        return { value: (size += 2), done: false };\r\n      } else if (direction === 'down') {\r\n        if (size <= 6) {\r\n          return { value: size, done: false };\r\n        }\r\n        return { value: (size -= 2), done: false };\r\n      } else {\r\n        return { value: size, done: false };\r\n      }\r\n    },\r\n  };\r\n};\r\nconst fontGenerator = newFontGenerator(14);\r\n\r\nlet generatorValue = 0;\r\n\r\nfunction* infiniteGenerator() {\r\n  while (true) {\r\n    generatorValue++;\r\n    yield generatorValue;\r\n  }\r\n}\r\n\r\nwindow.fontGenerator = fontGenerator;\r\nwindow.infiniteGenerator = infiniteGenerator();\r\n\r\nconsole.table([\r\n  {\r\n    fontGenerator: 'fontGenerator.next(\"up\")',\r\n    infiniteGenerator: 'infiniteGenerator.next().value',\r\n  },\r\n  { fontGenerator: 'fontGenerator.next(\"down\")', infiniteGenerator: '' },\r\n]);\r\n\n\n//# sourceURL=webpack:///./src/hw13/index.js?");
 
 /***/ })
 

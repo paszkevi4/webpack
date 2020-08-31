@@ -91,9 +91,16 @@
   !*** ./src/hw11/index.js ***!
   \***************************/
 /*! exports provided: getRandomChinese */
+<<<<<<< HEAD
 /***/ (function(module, exports) {
 
 eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\J\\\\Desktop\\\\projects\\\\cursor\\\\webpack\\\\src\\\\hw11\\\\index.js'\");\n\n//# sourceURL=webpack:///./src/hw11/index.js?");
+=======
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRandomChinese\", function() { return getRandomChinese; });\nconst delay = () => {\r\n  return new Promise((res) =>\r\n    setTimeout(() => {\r\n      res();\r\n    }, 50),\r\n  );\r\n};\r\n\r\nlet time = null;\r\n\r\nconst getRandomChinese = async (length) => {\r\n  time = Date.now();\r\n  let result = [];\r\n  try {\r\n    for (let i = 0; i < length; i++) {\r\n      const uniqueKey = Date.now().toString().substr(-5);\r\n      result.push(String.fromCharCode(uniqueKey));\r\n      await delay();\r\n    }\r\n  } catch {\r\n    throw new Error('impossible error');\r\n  } finally {\r\n    console.log(`${result.join('')} за ${Date.now() - time} ms`);\r\n  }\r\n};\r\n\r\ngetRandomChinese(4);\r\n\n\n//# sourceURL=webpack:///./src/hw11/index.js?");
+>>>>>>> 0dbf963857d49e9feb5f98bce36a6db56fdca55c
 
 /***/ })
 
