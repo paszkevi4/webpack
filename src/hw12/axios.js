@@ -22,6 +22,6 @@ const getCharactersInfo = (charLink) => {
 
 export const getCharacters = async (num) => {
   let temp = await getList(num);
-  let result = Promise.all(temp.map((link) => getCharactersInfo(link)));
+  let result = Promise.all(temp.map((link) => getCharactersInfo(link.slice(5))));
   return result;
 };
