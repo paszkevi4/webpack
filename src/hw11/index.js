@@ -1,3 +1,4 @@
+require("regenerator-runtime/runtime");
 const delay = () => {
   return new Promise((res) =>
     setTimeout(() => {

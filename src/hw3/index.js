@@ -1,4 +1,4 @@
-
+require("regenerator-runtime/runtime");
 import { namePrettier, getRandomNumber } from '../commonFuncs/functions';
 
 /* 1. Функція, яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. */
@@ -24,14 +24,6 @@ const degreeCounter = (
   return answer;
 }
 
-// /* 3. Функція, яка форматує ім'я, роблячи першу букву великою. */
-// function namePrettier(name = prompt("Введiть ваше iм'я")) {
-//   const newName = name[0].toUpperCase() + name.slice(1).toLowerCase();
-//   return newName;
-// }
-
-// module.exports.namePrettier = namePrettier
-
 /* 4. Функція, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. */
 const salaryCount = (sal = prompt('Розрахункова ЗП')) => {
   const incomeTax = 18;
@@ -40,19 +32,6 @@ const salaryCount = (sal = prompt('Розрахункова ЗП')) => {
   const militaryFee = sal * (militaryTax / 100);
   return sal - (incomeFee + militaryFee);
 }
-
-// /* 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. */
-// const getRandomNumber = (
-//   lower = +prompt('Шукаємо у промiжку з:'),
-//   higher = +prompt('та до якого значення:'),
-// ) => {
-//   const temp = Math.random() * (higher - lower) + lower;
-//   return Math.ceil(temp);
-// }
-
-// module.exports.getRandomNumber = getRandomNumber
-
-// export { namePrettier, getRandomNumber }
 
 /* 6. Функція, яка рахує скільки разів певна буква повторюється в слові. */
 const countLetter = (letter = prompt('Шукати букву:'), word = prompt('У якому рядку?')) => {

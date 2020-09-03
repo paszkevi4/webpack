@@ -1,7 +1,5 @@
 import { getPlanets, getCharacters } from './axios'
 
-
-
 const root = document.querySelector("#root");
 const btnPlanets = document.querySelector(".planetsBtn");
 const charsBtn = document.querySelector(".charsBtn");

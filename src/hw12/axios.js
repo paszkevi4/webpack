@@ -1,4 +1,5 @@
 import * as axios from 'axios';
+require("regenerator-runtime/runtime");
 
 let instance = axios.create({
   baseURL: 'https://swapi.dev/api/',

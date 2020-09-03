@@ -1,3 +1,5 @@
+import "regenerator-runtime/runtime.js";
+
 const newFontGenerator = (size = 16) => {
   return {
     next(direction) {
