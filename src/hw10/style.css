@@ -1,0 +1,29 @@
+body {
+  background: navy;
+  color: yellow;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-top: Calc(50vh - 10vh);
+}
+
+.key {
+  border: 5px solid yellow;
+  border-radius: 15px;
+  margin: auto;
+  height: 200px;
+  width: 350px;
+  background: rgba(1, 1, 1, 0.5);
+
+  display: grid;
+  grid-template-rows: 150px 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 50px;
+  justify-self: center;
+}

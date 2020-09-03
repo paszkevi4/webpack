@@ -81,44 +81,32 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw7/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw6/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/commonFuncs/functions.js":
-/*!**************************************!*\
-  !*** ./src/commonFuncs/functions.js ***!
-  \**************************************/
-/*! exports provided: namePrettier, getRandomNumber */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"namePrettier\", function() { return namePrettier; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRandomNumber\", function() { return getRandomNumber; });\n/* 3. Функція, яка форматує ім'я, роблячи першу букву великою. */\r\nconst namePrettier = (name = prompt(\"Введiть ваше iм'я\")) => {\r\n    const newName = name[0].toUpperCase() + name.slice(1).toLowerCase();\r\n    return newName;\r\n}\r\n\r\n/* 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. */\r\nconst getRandomNumber = (\r\n    lower = +prompt('Шукаємо у промiжку з:'),\r\n    higher = +prompt('та до якого значення:'),\r\n) => {\r\n    const temp = Math.random() * (higher - lower) + lower;\r\n    return Math.ceil(temp);\r\n}\r\n\n\n//# sourceURL=webpack:///./src/commonFuncs/functions.js?");
-
-/***/ }),
-
-/***/ "./src/hw7/functions.js":
+/***/ "./src/hw6/functions.js":
 /*!******************************!*\
-  !*** ./src/hw7/functions.js ***!
+  !*** ./src/hw6/functions.js ***!
   \******************************/
-/*! exports provided: getMyTaxes, getMiddleTaxes, getTotalTaxes, getMySalary */
+/*! exports provided: getSubjects, getAverageMark, getAverage, getStudentInfo, getStudentsNames, getBestStudent, calculateWordLetters */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getMyTaxes\", function() { return getMyTaxes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getMiddleTaxes\", function() { return getMiddleTaxes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getTotalTaxes\", function() { return getTotalTaxes; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getMySalary\", function() { return getMySalary; });\nfunction getMyTaxes(salary) {\r\n  return (salary * this.tax).toFixed(2);\r\n}\r\n\r\nfunction getMiddleTaxes() {\r\n  return (this.middleSalary * this.tax).toFixed(2);\r\n}\r\n\r\nfunction getTotalTaxes() {\r\n  return this.middleSalary * this.tax * this.vacancies;\r\n}\r\n\r\nfunction getMySalary(salary) {\r\n  let answ = { salary };\r\n  answ.taxes = getMyTaxes.call(this, salary);\r\n  answ.profit = salary - answ.taxes;\r\n  return answ;\r\n}\r\n\n\n//# sourceURL=webpack:///./src/hw7/functions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getSubjects\", function() { return getSubjects; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getAverageMark\", function() { return getAverageMark; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getAverage\", function() { return getAverage; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStudentInfo\", function() { return getStudentInfo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStudentsNames\", function() { return getStudentsNames; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getBestStudent\", function() { return getBestStudent; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"calculateWordLetters\", function() { return calculateWordLetters; });\n/*-----1. Повернення списку предметів-----*/\r\nconst getSubjects = (student) => {\r\n  let subjects = [];\r\n  subjects = Object.keys(student.subjects);\r\n  return subjects.join(' ');\r\n};\r\n\r\n/*-----2. Середня оцінка-----*/\r\nconst getAverageMark = (student) => {\r\n  const { subjects } = student;\r\n  const temp = [];\r\n  for (let sub in subjects) {\r\n    temp.push(getAverage(...subjects[sub]));\r\n  }\r\n  return getAverage(...temp).toFixed(2);\r\n};\r\n\r\nconst getAverage = (...numbers) => {\r\n  let sum = 0;\r\n  numbers.map((el) => {\r\n    sum += el;\r\n  });\r\n  return sum / numbers.length;\r\n};\r\n\r\n/*-----3. Повернення загальної інформації про студента-----*/\r\nconst getStudentInfo = (student) => {\r\n  const temp = {\r\n    course: student.course,\r\n    name: student.name,\r\n    averageMark: getAverageMark(student),\r\n  };\r\n  return temp;\r\n};\r\n\r\n/*-----4. Iмена студентів у алфавітному порядку-----*/\r\nconst getStudentsNames = (students) => {\r\n  return students.map((el) => el.name).sort();\r\n};\r\n\r\n/*-----5. Повернути iмя найкращого студента-----*/\r\nconst getBestStudent = (students) => {\r\n  const newArr = JSON.parse(JSON.stringify(students));\r\n  newArr.map((stud) => {\r\n    stud.average = getAverageMark(stud);\r\n  });\r\n  let max = newArr.reduce((prev, curr) => {\r\n    if (prev.average > curr.average) {\r\n      return prev;\r\n    }\r\n    return curr;\r\n  });\r\n  return max.name;\r\n};\r\n\r\n/*-----6. Порахувати букви-----*/\r\nconst calculateWordLetters = (word) => {\r\n  const temp = {};\r\n  [...word].forEach((el) => {\r\n    temp[el] ? (temp[el] += 1) : (temp[el] = 1);\r\n  });\r\n  return temp;\r\n};\n\n//# sourceURL=webpack:///./src/hw6/functions.js?");
 
 /***/ }),
 
-/***/ "./src/hw7/index.js":
+/***/ "./src/hw6/index.js":
 /*!**************************!*\
-  !*** ./src/hw7/index.js ***!
+  !*** ./src/hw6/index.js ***!
   \**************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store */ \"./src/store.js\");\n/* harmony import */ var _commonFuncs_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../commonFuncs/functions */ \"./src/commonFuncs/functions.js\");\n/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions */ \"./src/hw7/functions.js\");\n\r\n//import { namePrettier, getRandomNumber } from '../hw3/index';\r\n\r\n//let someModule = require('../hw3/index');\r\n\r\n\r\n\r\nconst state = _store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].hw7;\r\nconst countries = Object.keys(state);\r\nconst mySalary = Object(_commonFuncs_functions__WEBPACK_IMPORTED_MODULE_1__[\"getRandomNumber\"])(1500, 2000);\r\n\r\nconsole.group('My taxes in different countries');\r\ncountries.map((country) =>\r\n  console.log(\r\n    `$ ${_functions__WEBPACK_IMPORTED_MODULE_2__[\"getMyTaxes\"].call(state[country], mySalary)} you would pay for taxes in ${Object(_commonFuncs_functions__WEBPACK_IMPORTED_MODULE_1__[\"namePrettier\"])(\r\n      country,\r\n    )} if you had ${mySalary}-dollar salary.`,\r\n  ),\r\n);\r\nconsole.groupEnd();\r\n\r\nconsole.group('Middle countries across the countries');\r\ncountries.map((country) =>\r\n  console.log(\r\n    `$ ${_functions__WEBPACK_IMPORTED_MODULE_2__[\"getMiddleTaxes\"].call(\r\n      state[country],\r\n    )} taxes are paid by IT specialist in each ${Object(_commonFuncs_functions__WEBPACK_IMPORTED_MODULE_1__[\"namePrettier\"])(country)} on average.`,\r\n  ),\r\n);\r\nconsole.groupEnd();\r\n\r\nconsole.group('Total taxes paid in different countries');\r\ncountries.map((country) =>\r\n  console.log(\r\n    `$ ${_functions__WEBPACK_IMPORTED_MODULE_2__[\"getTotalTaxes\"].call(state[country])} taxes are paid by IT specialists in ${Object(_commonFuncs_functions__WEBPACK_IMPORTED_MODULE_1__[\"namePrettier\"])(\r\n      country,\r\n    )}.`,\r\n  ),\r\n);\r\nconsole.groupEnd();\r\n\r\nwindow.state = state;\r\n\n\n//# sourceURL=webpack:///./src/hw7/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store */ \"./src/store.js\");\n/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions */ \"./src/hw6/functions.js\");\n\r\n//import getAverage from './functions';\r\n\r\n\r\nconst state = _store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].hw6;\r\nconst wordForCalcs = 'aaabcccc';\r\n\r\nconsole.log('Students sorted:', Object(_functions__WEBPACK_IMPORTED_MODULE_1__[\"getStudentsNames\"])(state.students))\r\n\r\nstate.students.map((el) => {\r\n    console.group(el.name)\r\n    console.log(`subjects:  ${Object(_functions__WEBPACK_IMPORTED_MODULE_1__[\"getSubjects\"])(el)}`)\r\n    console.log(...Object.entries(Object(_functions__WEBPACK_IMPORTED_MODULE_1__[\"getStudentInfo\"])(el)))\r\n    console.log(`average:  ${Object(_functions__WEBPACK_IMPORTED_MODULE_1__[\"getAverageMark\"])(el)}`)\r\n    console.groupEnd()\r\n})\r\n\r\nconsole.log('Letter counter:', ...Object.entries(Object(_functions__WEBPACK_IMPORTED_MODULE_1__[\"calculateWordLetters\"])(wordForCalcs)))\n\n//# sourceURL=webpack:///./src/hw6/index.js?");
 
 /***/ }),
 

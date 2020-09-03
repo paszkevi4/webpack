@@ -12,9 +12,12 @@ module.exports = {
     hw3: './src/hw3/index.js',
     hw4: './src/hw4/index.js',
     hw5: './src/hw5/index.js',
+    hw6: './src/hw6/index.js',
     hw7: './src/hw7/index.js',
     hw8: './src/hw8/index.js',
+    hw9: './src/hw9/index.js',
     hw11: './src/hw11/index.js',
+    hw12: './src/hw12/index.js',
     hw13: './src/hw13/index.js',
   },
   output: {
@@ -64,10 +67,17 @@ module.exports = {
       chunks: ['hw5'],
     }),
     new HtmlWebpackPlugin({
+      title: 'hw6',
+      filename: './hw6/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw6'],
+    }),
+    new HtmlWebpackPlugin({
       title: 'hw7',
       filename: './hw7/index.html',
       template: './index.html',
-      inject: true,
+      inject: 'body',
       chunks: ['hw7'],
     }),
     new HtmlWebpackPlugin({
@@ -78,11 +88,25 @@ module.exports = {
       chunks: ['hw8'],
     }),
     new HtmlWebpackPlugin({
+      title: 'hw9',
+      filename: './hw9/index.html',
+      template: './index.html',
+      inject: true,
+      chunks: ['hw9'],
+    }),
+    new HtmlWebpackPlugin({
       title: 'hw11',
       filename: './hw11/index.html',
       template: './index.html',
       inject: true,
       chunks: ['hw11'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'hw12',
+      filename: './hw12/index.html',
+      template: './src/hw12/index.html',
+      inject: true,
+      chunks: ['hw12'],
     }),
     new HtmlWebpackPlugin({
       title: 'hw13',

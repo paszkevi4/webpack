@@ -1,5 +1,8 @@
 import store from '../store';
-import { getRandomNumber, namePrettier } from '../hw3/index';
+//import { namePrettier, getRandomNumber } from '../hw3/index';
+import { namePrettier, getRandomNumber } from '../commonFuncs/functions';
+//let someModule = require('../hw3/index');
+
 import { getMyTaxes, getMiddleTaxes, getTotalTaxes } from './functions';
 
 const state = store.hw7;
