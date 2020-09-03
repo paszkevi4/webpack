@@ -5,8 +5,6 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    //main: './src/index.js',
-    //index: './src/index1.js',
     hw1: './src/hw1/index.js',
     hw2: './src/hw2/index.js',
     hw3: './src/hw3/index.js',
@@ -16,6 +14,7 @@ module.exports = {
     hw7: './src/hw7/index.js',
     hw8: './src/hw8/index.js',
     hw9: './src/hw9/index.js',
+    hw10: './src/hw10/index.js',
     hw11: './src/hw11/index.js',
     hw12: './src/hw12/index.js',
     hw13: './src/hw13/index.js',
@@ -30,7 +29,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    //new HtmlWebpackPlugin({ filename: './index.html', template: './index.html', inject: false }),
     new HtmlWebpackPlugin({
       title: 'hw1',
       filename: './hw1/index.html',
@@ -95,6 +93,13 @@ module.exports = {
       chunks: ['hw9'],
     }),
     new HtmlWebpackPlugin({
+      title: 'hw10',
+      filename: './hw10/index.html',
+      template: './src/hw10/index.html',
+      inject: true,
+      chunks: ['hw10'],
+    }),
+    new HtmlWebpackPlugin({
       title: 'hw11',
       filename: './hw11/index.html',
       template: './index.html',
@@ -125,6 +130,20 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ],
   },
 };

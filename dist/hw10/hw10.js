@@ -81,31 +81,43 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw9/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/hw10/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/hw9/index.js":
-/*!**************************!*\
-  !*** ./src/hw9/index.js ***!
-  \**************************/
+/***/ "./src/hw10/index.js":
+/*!***************************!*\
+  !*** ./src/hw10/index.js ***!
+  \***************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.sass */ \"./src/hw9/index.sass\");\n/* harmony import */ var _index_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_sass__WEBPACK_IMPORTED_MODULE_0__);\nvar root = document.querySelector(\"#root\");\n\n\nfor (var i = 0; i < 5; i++) {\n  var className = \"row\".concat(i);\n  root.innerHTML += \"<div class = \".concat(className, \" }></div>\");\n\n  for (var j = 0; j < 5; j++) {\n    var color = \"#\" + ((1 << 24) * Math.random() | 0).toString(16);\n    var row = document.querySelector(\".row\".concat(i));\n    row.innerHTML += \"<div class='cell' style = 'background-color : \".concat(color, \"' ></div>\");\n  }\n}\n\nconsole.log(root);\n\n//# sourceURL=webpack:///./src/hw9/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/hw10/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _sounds_box_mp3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sounds/box.mp3 */ \"./src/hw10/sounds/box.mp3\");\n\n\nvar audios = document.querySelectorAll('audio');\ndocument.addEventListener('keydown', function (e) {\n  var curr;\n  audios.forEach(function (audio) {\n    if (audio.id === e.key) {\n      curr = audio;\n    }\n  });\n  curr && curr.play();\n});\n\n//# sourceURL=webpack:///./src/hw10/index.js?");
 
 /***/ }),
 
-/***/ "./src/hw9/index.sass":
+/***/ "./src/hw10/sounds/box.mp3":
+/*!*********************************!*\
+  !*** ./src/hw10/sounds/box.mp3 ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"20bcf29c49238dac49f16a8f384121d4.mp3\");\n\n//# sourceURL=webpack:///./src/hw10/sounds/box.mp3?");
+
+/***/ }),
+
+/***/ "./src/hw10/style.css":
 /*!****************************!*\
-  !*** ./src/hw9/index.sass ***!
+  !*** ./src/hw10/style.css ***!
   \****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/hw9/index.sass?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/hw10/style.css?");
 
 /***/ })
 
