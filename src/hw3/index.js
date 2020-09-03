@@ -1,3 +1,6 @@
+
+import { namePrettier, getRandomNumber } from '../commonFuncs/functions';
+
 /* 1. Функція, яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. */
 const getMaxDigit = (number = prompt('Введiть значення, у якому треба знайти найбiльшу цифру')) => {
   number = number.toString();
@@ -19,13 +22,15 @@ const degreeCounter = (
     answer *= number;
   }
   return answer;
-};
+}
 
-/* 3. Функція, яка форматує ім'я, роблячи першу букву великою. */
-const namePrettier = (name = prompt("Введiть ваше iм'я")) => {
-  newName = name[0].toUpperCase() + name.slice(1).toLowerCase();
-  return newName;
-};
+// /* 3. Функція, яка форматує ім'я, роблячи першу букву великою. */
+// function namePrettier(name = prompt("Введiть ваше iм'я")) {
+//   const newName = name[0].toUpperCase() + name.slice(1).toLowerCase();
+//   return newName;
+// }
+
+// module.exports.namePrettier = namePrettier
 
 /* 4. Функція, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. */
 const salaryCount = (sal = prompt('Розрахункова ЗП')) => {
@@ -33,17 +38,21 @@ const salaryCount = (sal = prompt('Розрахункова ЗП')) => {
   const militaryTax = 1.5;
   const incomeFee = sal * (incomeTax / 100);
   const militaryFee = sal * (militaryTax / 100);
-  return (newSal = sal - (incomeFee + militaryFee));
-};
+  return sal - (incomeFee + militaryFee);
+}
 
-/* 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. */
-const getRandomNumber = (
-  lower = +prompt('Шукаємо у промiжку з:'),
-  higher = +prompt('та до якого значення:'),
-) => {
-  const temp = Math.random() * (higher - lower) + lower;
-  return Math.ceil(temp);
-};
+// /* 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. */
+// const getRandomNumber = (
+//   lower = +prompt('Шукаємо у промiжку з:'),
+//   higher = +prompt('та до якого значення:'),
+// ) => {
+//   const temp = Math.random() * (higher - lower) + lower;
+//   return Math.ceil(temp);
+// }
+
+// module.exports.getRandomNumber = getRandomNumber
+
+// export { namePrettier, getRandomNumber }
 
 /* 6. Функція, яка рахує скільки разів певна буква повторюється в слові. */
 const countLetter = (letter = prompt('Шукати букву:'), word = prompt('У якому рядку?')) => {
@@ -52,7 +61,7 @@ const countLetter = (letter = prompt('Шукати букву:'), word = prompt(
     if (word[i].toLowerCase() === letter.toLowerCase()) counter++;
   }
   return counter;
-};
+}
 
 /*7. Функція, яка конвертує долари в гривні та навпаки*/
 const willGet = (function () {
@@ -107,12 +116,10 @@ const convertCurrency = async (
 };
 
 /* 8. Функція генерації випадкового паролю Довжина встановлюється користувачем або по замовчуванню = 8 символам. */
-const createPassword = (
-  symbolNumber = prompt('How many symbols do you want to have in your password?'),
-) => {
+const createPassword = (symbolNumber = 4) => {
   if (!symbolNumber) symbolNumber = 8;
   let pass = [];
-  for (i = 0; i < symbolNumber; i++) {
+  for (let i = 0; i < symbolNumber; i++) {
     pass.push(Math.ceil(Math.random() * 9));
   }
   return pass.join('');
@@ -196,14 +203,14 @@ const f = [
   `Propper way to write ${varsForTesting.name} is ${namePrettier(varsForTesting.name)}`,
   `Маючи зп ${varsForTesting.salary} ти отримаєш тiльки ${salaryCount(varsForTesting.salary)}`,
   `Довiльне значення вiд ${varsForTesting.random.min} до ${
-    varsForTesting.random.max
+  varsForTesting.random.max
   } може бути, наприклад ${getRandomNumber(varsForTesting.random.min, varsForTesting.random.max)}`,
   `Буква ${varsForTesting.counter.letter} зустрiчається у рядку ${
-    varsForTesting.counter.word
+  varsForTesting.counter.word
   } ${countLetter(varsForTesting.counter.letter, varsForTesting.counter.word)} рази`,
   `Your new password is ${createPassword()}`,
   `${varsForTesting.deleteing.word} without all the ${
-    varsForTesting.deleteing.letter
+  varsForTesting.deleteing.letter
   }'s is just a ${deleteLetters(varsForTesting.deleteing.letter, varsForTesting.deleteing.word)}`,
   `${varsForTesting.palyndrom} - це${isPalyndrom(varsForTesting.palyndrom) ? '' : ' не'} палiндром`,
   `${varsForTesting.duplicates} without duplicates is ${deleteDuplicateLetter(
